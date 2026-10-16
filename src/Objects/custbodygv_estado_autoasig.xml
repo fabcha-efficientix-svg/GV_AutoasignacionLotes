@@ -28,11 +28,11 @@
   <bodyvendorprepayment>F</bodyvendorprepayment>
   <checkspelling>F</checkspelling>
   <defaultchecked>F</defaultchecked>
-  <defaultselection></defaultselection>
+  <defaultselection>[scriptid=customlistgv_estado_autoasig_wo.val_579838_11289219_sb2_157]</defaultselection>
   <defaultvalue></defaultvalue>
   <description></description>
   <displayheight></displayheight>
-  <displaytype>NORMAL</displaytype>
+  <displaytype>STATICTEXT</displaytype>
   <displaywidth></displaywidth>
   <dynamicdefault></dynamicdefault>
   <enabletextenhance>F</enabletextenhance>
@@ -62,4 +62,26 @@
   <sourcelist></sourcelist>
   <storevalue>T</storevalue>
   <subtab>TRANSACTIONMAIN</subtab>
+  <roleaccesses>
+    <roleaccess>
+      <accesslevel>2</accesslevel>
+      <role>ADMINISTRATOR</role>
+      <searchlevel>2</searchlevel>
+    </roleaccess>
+    <roleaccess>
+      <accesslevel>2</accesslevel>
+      <role>[scriptid=customrole_vida_mfg_prm_productionmgr]</role>
+      <searchlevel>2</searchlevel>
+    </roleaccess>
+    <roleaccess>
+      <accesslevel>2</accesslevel>
+      <role>[scriptid=customrole_vida_mfg_prm_prodop]</role>
+      <searchlevel>2</searchlevel>
+    </roleaccess>
+    <roleaccess>
+      <accesslevel>2</accesslevel>
+      <role>[scriptid=customrole_vida_mfg_prm_scm]</role>
+      <searchlevel>2</searchlevel>
+    </roleaccess>
+  </roleaccesses>
 </transactionbodycustomfield>
