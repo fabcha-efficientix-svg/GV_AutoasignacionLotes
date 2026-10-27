@@ -30,8 +30,18 @@ define(['N/runtime', 'N/url', 'N/search', 'N/log'], (runtime, url, search, log) 
     };
 
     const beforeLoad = (ctx) => {
-        if (ctx.type !== ctx.UserEventType.VIEW) return;
         const rec = ctx.newRecord;
+
+        // Si es un registro nuevo o una copia, limpiar el estado de autoasignación
+        if (ctx.type === ctx.UserEventType.CREATE || ctx.type === ctx.UserEventType.COPY) {
+            rec.setValue({
+                fieldId: 'custbodygv_estado_autoasig',
+                value: ''
+            });
+            return;
+        }
+
+        if (ctx.type !== ctx.UserEventType.VIEW) return;
         const st = rec.getValue('status');
         const ost = rec.getValue('orderstatus');
         const tranId = rec.getValue('tranid');
@@ -79,5 +89,14 @@ define(['N/runtime', 'N/url', 'N/search', 'N/log'], (runtime, url, search, log) 
         });
     };
 
-    return { beforeLoad };
+    const beforeSubmit = (ctx) => {
+        if (ctx.type === ctx.UserEventType.CREATE || ctx.type === ctx.UserEventType.COPY) {
+            ctx.newRecord.setValue({
+                fieldId: 'custbodygv_estado_autoasig',
+                value: ''
+            });
+        }
+    };
+
+    return { beforeLoad, beforeSubmit };
 });
